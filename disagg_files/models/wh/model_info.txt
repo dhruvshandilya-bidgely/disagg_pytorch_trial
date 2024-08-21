@@ -1,0 +1,8 @@
+wh_hld_model
+Description : Trained model to detect a non-timed water heater
+model_type : RandomForestClassifier
+n_features : 25
+
+thin_pulse_duration_model
+Description : Regression model to estimate thin pulse duration from given amplitude of thin pulse
+model_type : LinearRegression

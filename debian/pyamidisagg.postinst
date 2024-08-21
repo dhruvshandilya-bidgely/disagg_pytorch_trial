@@ -1,0 +1,53 @@
+#!/bin/bash
+set -e
+echo "POST INST"
+chown -R bprod:bprod /opt/bidgely/pyamidisagg/
+chmod -R 755 /opt/bidgely/pyamidisagg/
+
+source /etc/environment
+
+echo "priority flag = $PRIORITY_FLAG"
+
+echo "Creating log dir"
+
+LOG_FOLDER_BASE="/var/log/bidgely/"
+
+if [ -z "$PRIORITY_FLAG" ] ; then
+        echo "Priority flag not present"
+        LOG_FOLDER="/var/log/bidgely/pyamidisagg/pydisagg"
+else
+        if [ "$PRIORITY_FLAG" = "true" ]; then
+                echo "Priority flag is set to true"
+                LOG_FOLDER="/var/log/bidgely/pyamidisagg/pydisaggpriority"
+        else
+                echo "Priority flag is not set to true"
+                LOG_FOLDER="/var/log/bidgely/pyamidisagg/pydisagg"
+        fi
+fi
+
+echo "Log folder variable is set to $LOG_FOLDER"
+
+if [ ! -d $LOG_FOLDER ] ; then
+        mkdir -p $LOG_FOLDER
+        echo "Creating log folder $LOG_FOLDER"
+fi
+
+chown -R bprod:bprod "$LOG_FOLDER_BASE"
+chmod -R 755 "$LOG_FOLDER_BASE"
+
+echo "Permissions changed for $LOG_FOLDER_BASE"
+
+chown -R bprod:bprod "$LOG_FOLDER"
+chmod -R 755 "$LOG_FOLDER"
+
+echo "Permissions changed for $LOG_FOLDER"
+
+SYSTEMD_FOLDER=/etc/systemd/system
+
+cp /opt/bidgely/pyamidisagg/service/pydisagg.service "$SYSTEMD_FOLDER/"
+echo "Disagg service created"
+
+systemctl start pydisagg
+echo "Started service pydisagg"
+
+exit 0

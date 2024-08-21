@@ -1,0 +1,20 @@
+
+
+
+"""Pilot level config required for classifying users based on their consumption level and variation """
+
+annual_consumption_quantile_boundaries  : Fixed quartile boundaries to calculate total consumption buckets
+
+annual_consumption_level                : Total consumption buckets
+
+median_quantile_boundaries              : Fixed quartile boundaries to calculate median buckets
+
+iqd_quantile_boundaries                 : Fixed quartile boundaries to calculate inter quartile distance buckets
+
+allowed_user_buckets                    : allowed set of buckets for the given pilot
+                                          Where, first digit describes the consumption level of user
+                                          and second digit describes variation level of the user
+
+median_daily_cons_quantile_vals         : calculated median buckets
+
+iqd_daily_cons_quantile_vals            : calculated inter quartile distance buckets

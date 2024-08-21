@@ -1,0 +1,13 @@
+#!/bin/bash
+# Exit immediately if a command exits with non-zero status
+set -e
+DEBUG="no"
+SYSTEMD_FOLDER=/etc/systemd/system
+
+echo "Preremove script"
+echo "Stopping service pydisagg"
+systemctl stop pydisagg
+rm "$SYSTEMD_FOLDER/pydisagg.service"
+echo "Removed service pydisagg"
+
+exit 0

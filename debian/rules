@@ -1,0 +1,18 @@
+#!/usr/bin/make -f
+export DH_VIRTUALENV_INSTALL_ROOT=/opt/bidgely
+%:
+	dh $@ --with python-virtualenv
+
+.PHONY: override_dh_strip override_dh_shlibdeps
+
+override_dh_strip:
+	dh_strip --exclude=cffi
+
+override_dh_shlibdeps:
+	dh_shlibdeps -X/x86/ -X/numpy/.libs -X/scipy/.libs -X/matplotlib/.libs -X/cvxopt/.libs
+
+override_dh_install:
+	dh_install service/ /opt/bidgely/pyamidisagg
+
+override_dh_builddeb:
+	dh_builddeb -- --no-uniform-compression

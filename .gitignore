@@ -1,0 +1,10 @@
+*.png
+*.jpeg
+*.jpg
+*.pyc
+*.log
+*.DS_Store
+python3/cache_data/
+.idea/
+*test_throughput.txt
+*DS_Store
