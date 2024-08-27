@@ -190,10 +190,12 @@ def get_partition_predictions(dl_debug, ml_debug, logger_base, ctype='L2'):
 
     if ctype == 'L2':
         model = ml_debug.get('models').get('ev_hld').get('l2_cnn')
-        model.eval()
+        model = model.eval()
+        model = model.float()
     else:
         model = ml_debug.get('models').get('ev_hld').get('l1_cnn')
-        model.eval()
+        model = model.eval()
+        model = model.float()
 
     # For each partition perform preprocessing and predictions
     logger.info("DL %s : Total partitions to predict | %s", ctype, total_partitions)
@@ -224,7 +226,7 @@ def get_partition_predictions(dl_debug, ml_debug, logger_base, ctype='L2'):
 
         t_start = datetime.datetime.now()
         with torch.no_grad():
-            out_data = model(tf_input)
+            out_data = model(tf_input.float())
         prediction = np.asarray(out_data)
         t_end = datetime.datetime.now()
         logger.info('DL %s : Individual partition prediction | %s', ctype, get_time_diff(t_start, t_end))
@@ -238,7 +240,7 @@ def get_partition_predictions(dl_debug, ml_debug, logger_base, ctype='L2'):
         prediction_confidences.append(prediction[0])
 
     t_start = datetime.datetime.now()
-    _ = model.predict(tf_input)
+    _ = model.predict(tf_input.float())
     _ = gc.collect()
     t_end = datetime.datetime.now()
     logger.info('DL %s : Garbage clearing time | %s', ctype, get_time_diff(t_start, t_end))
