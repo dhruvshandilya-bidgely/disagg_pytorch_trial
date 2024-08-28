@@ -68,12 +68,12 @@ def load_files_wrapper(disagg_version, job_tag, logger_pass):
     # Call the function to load files to be used by EV propensity
 
     # noinspection PyBroadException
-    try:
-        ev_propensity_files = load_ev_propensity_files(version, job_tag, logger_pass)
-        loaded_files['ev_propensity_files'] = ev_propensity_files
-    except Exception:
-        error_str = (traceback.format_exc()).replace('\n', ' ')
-        logger.error("Something went wrong while loading files for ev propensity | %s", error_str)
+    # try:
+    #     ev_propensity_files = load_ev_propensity_files(version, job_tag, logger_pass)
+    #     loaded_files['ev_propensity_files'] = ev_propensity_files
+    # except Exception:
+    #     error_str = (traceback.format_exc()).replace('\n', ' ')
+    #     logger.error("Something went wrong while loading files for ev propensity | %s", error_str)
 
     # Call the function to load files to be used by solar
 

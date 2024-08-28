@@ -181,6 +181,8 @@ def fetch_files(api_env, disagg_version, job_tag, logger):
 
     if not os.path.exists(local_path):
         os.makedirs(local_path)
+    else:
+        return
 
     # Initialize the boto3 client and resource to pull the files
 

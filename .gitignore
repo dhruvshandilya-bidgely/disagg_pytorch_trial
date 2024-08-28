@@ -8,3 +8,8 @@ python3/cache_data/
 .idea/
 *test_throughput.txt
 *DS_Store
+cache_data/
+gb_disagg_single_user.log
+python3/test_throughput.txt
+disagg_files/1477_custom/
+python3/tmp/

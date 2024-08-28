@@ -199,6 +199,7 @@ def get_partition_predictions(dl_debug, ml_debug, logger_base, ctype='L2'):
 
     # For each partition perform preprocessing and predictions
     logger.info("DL %s : Total partitions to predict | %s", ctype, total_partitions)
+    print('Model loading done.')
 
     for i in range(total_partitions):
 
@@ -240,7 +241,7 @@ def get_partition_predictions(dl_debug, ml_debug, logger_base, ctype='L2'):
         prediction_confidences.append(prediction[0])
 
     t_start = datetime.datetime.now()
-    _ = model.predict(tf_input.float())
+    _ = model(tf_input.float())
     _ = gc.collect()
     t_end = datetime.datetime.now()
     logger.info('DL %s : Garbage clearing time | %s', ctype, get_time_diff(t_start, t_end))

@@ -12,7 +12,7 @@ class PathConstants:
     CACHE_DIR = '../cache_data/'
     VIP_DIR = '/tmp/vip_results/'
     VIP_FILE = 'vip_disagg.csv'
-    LOG_DIR = '/var/log/bidgely/pyamidisagg/pydisagg/'
+    LOG_DIR = '../plots/'
     LOG_DIR_PRIORITY = '/var/log/bidgely/pyamidisagg/pydisaggpriority/'
     WEATHER_DATA_CACHE_DIR = "tmp/weatherDataCache"
 
@@ -22,7 +22,7 @@ class PathConstants:
 
     # Configuration variables for downloading and storing trained models from s3 buckets
 
-    FILES_LOCAL_ROOT_DIR = '/tmp/disagg_static_files/'
+    FILES_LOCAL_ROOT_DIR = '../disagg_files/'
     HYBRID_V2_CONFIG_FILES_LOCAL_ROOT_DIR = '/tmp/disagg_static_files/'
     HYBRID_V2_CONFIG_FILES_LOCAL_PATH = '/models/itemization/pilot_config/'
 

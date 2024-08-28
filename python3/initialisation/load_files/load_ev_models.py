@@ -150,8 +150,10 @@ def load_ev_tensorflow_models(hld_model, logger, disagg_input_object):
 
     ev_l1_cnn_filename = 'ev_l1_cnn_pytorch.pt'
 
-    ev_l1_cnn_model_path = PathConstants.FILES_LOCAL_ROOT_DIR + build_info + '/' + \
-                           PathConstants.MODULE_FILES_ROOT_DIR['ev'] + ev_l1_cnn_filename
+    # ev_l1_cnn_model_path = PathConstants.FILES_LOCAL_ROOT_DIR + build_info + '/' + \
+    #                        PathConstants.MODULE_FILES_ROOT_DIR['ev'] + ev_l1_cnn_filename
+
+    ev_l1_cnn_model_path = '/Users/dhruvshandilyamohilkapuriya/Documents/Bidgely/Disagg_trial/disagg_files/models/ev/ev_l1_cnn_pytorch.pt'
 
     logger.info("EV L1 path | %s", ev_l1_cnn_model_path)
 
@@ -167,8 +169,11 @@ def load_ev_tensorflow_models(hld_model, logger, disagg_input_object):
 
     ev_l2_cnn_filename = 'ev_l2_cnn_pytorch.pt'
 
-    ev_l2_cnn_model_path = PathConstants.FILES_LOCAL_ROOT_DIR + build_info + '/' + \
-                           PathConstants.MODULE_FILES_ROOT_DIR['ev'] + ev_l2_cnn_filename
+    # ev_l2_cnn_model_path = PathConstants.FILES_LOCAL_ROOT_DIR + build_info + '/' + \
+    #                        PathConstants.MODULE_FILES_ROOT_DIR['ev'] + ev_l2_cnn_filename
+
+    ev_l2_cnn_model_path = '/Users/dhruvshandilyamohilkapuriya/Documents/Bidgely/Disagg_trial/disagg_files/models/ev/ev_l2_cnn_pytorch.pt'
+
     logger.info("EV L1 path | %s", ev_l2_cnn_model_path)
     if os.path.exists(ev_l2_cnn_model_path):
         model = torch.load(ev_l2_cnn_model_path)

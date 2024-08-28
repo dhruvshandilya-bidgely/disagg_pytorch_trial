@@ -20,14 +20,13 @@ if __name__ == '__main__':
     if not multiple_users:
 
         # To run a single user like we were, use the following command
-        run_single_user(uuid='9689d6e1-1787-4946-9e8b-3797ff6928fa',
-                        smb_type='all',
+        run_single_user(uuid='150e0a81-3f1b-4e65-bd06-69a8c51feaf2',
                         t_start=0,
                         t_end=1800000000,
                         api_env='ds',
-                        cache_mode=True,
+                        cache_mode=False,
                         disagg_version='1.0.1477',
-                        job_tag='release')
+                        job_tag='custom')
 
     else:
 
@@ -43,7 +42,7 @@ if __name__ == '__main__':
 
         multi_run_params_dict = {
             'num_processes': 1,
-            'user_list_path': 'disagg_trial.csv',
+            'user_list_path': '../disagg_trial.csv',
             'log_file_name': 'gb_disagg_multiple_users.log',
             'throughput_file': 'test_throughput.txt',
             'default_t0': 0,
